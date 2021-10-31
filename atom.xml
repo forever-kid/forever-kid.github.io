@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Azの时光录</title>
+  <icon>https://forever-kid.github.io/icon.png</icon>
+  
+  <link href="https://forever-kid.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://forever-kid.github.io/"/>
+  <updated>2021-10-31T08:15:28.502Z</updated>
+  <id>https://forever-kid.github.io/</id>
+  
+  <author>
+    <name>阿正</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo搭建资料</title>
+    <link href="https://forever-kid.github.io/2021/10/31/hexo%E6%90%AD%E5%BB%BA%E8%B5%84%E6%96%99/"/>
+    <id>https://forever-kid.github.io/2021/10/31/hexo%E6%90%AD%E5%BB%BA%E8%B5%84%E6%96%99/</id>
+    <published>2021-10-31T07:15:30.000Z</published>
+    <updated>2021-10-31T08:15:28.502Z</updated>
+    
+    
+    <summary type="html">抽空整理了一下当时搭建参考的资料</summary>
+    
+    
+    
+    
+    <category term="Hexo" scheme="https://forever-kid.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MSP432笔记</title>
+    <link href="https://forever-kid.github.io/2021/10/30/MSP432%E7%AC%94%E8%AE%B0/"/>
+    <id>https://forever-kid.github.io/2021/10/30/MSP432%E7%AC%94%E8%AE%B0/</id>
+    <published>2021-10-30T02:25:41.000Z</published>
+    <updated>2021-10-30T04:01:53.322Z</updated>
+    
+    
+    <summary type="html">MSP432的调试笔记，仅供参考</summary>
+    
+    
+    
+    
+    <category term="大学竞赛整理" scheme="https://forever-kid.github.io/tags/%E5%A4%A7%E5%AD%A6%E7%AB%9E%E8%B5%9B%E6%95%B4%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>信号与系统的一些个人理解</title>
+    <link href="https://forever-kid.github.io/2021/10/20/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/"/>
+    <id>https://forever-kid.github.io/2021/10/20/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/</id>
+    <published>2021-10-20T09:50:12.000Z</published>
+    <updated>2021-10-20T10:30:40.275Z</updated>
+    
+    
+    <summary type="html">记录自己学习信号与系统的过程中的一些个人理解</summary>
+    
+    
+    
+    
+    <category term="信号与系统" scheme="https://forever-kid.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>联想拯救者双系统ubuntu18的坑</title>
+    <link href="https://forever-kid.github.io/2021/10/18/%E8%81%94%E6%83%B3%E6%8B%AF%E6%95%91%E8%80%85%E5%8F%8C%E7%B3%BB%E7%BB%9Fubuntu18%E7%9A%84%E5%9D%91/"/>
+    <id>https://forever-kid.github.io/2021/10/18/%E8%81%94%E6%83%B3%E6%8B%AF%E6%95%91%E8%80%85%E5%8F%8C%E7%B3%BB%E7%BB%9Fubuntu18%E7%9A%84%E5%9D%91/</id>
+    <published>2021-10-18T14:15:34.000Z</published>
+    <updated>2021-10-18T14:18:06.039Z</updated>
+    
+    
+    <summary type="html">最近做了双系统，在拯救者上装有一些通病，确实把我折腾坏了</summary>
+    
+    
+    
+    
+    <category term="ubuntu18.04" scheme="https://forever-kid.github.io/tags/ubuntu18-04/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu18.04配置clash</title>
+    <link href="https://forever-kid.github.io/2021/10/03/ubuntu18.04%E9%85%8D%E7%BD%AEclash%20for%20liunx/"/>
+    <id>https://forever-kid.github.io/2021/10/03/ubuntu18.04%E9%85%8D%E7%BD%AEclash%20for%20liunx/</id>
+    <published>2021-10-03T08:17:13.000Z</published>
+    <updated>2021-10-18T12:57:03.227Z</updated>
+    
+    
+    <summary type="html">最近配置了一下clash for liunx，确实有不少坑，记录一些需要注意的点</summary>
+    
+    
+    
+    
+    <category term="ubuntu18.04工具" scheme="https://forever-kid.github.io/tags/ubuntu18-04%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>蓝桥杯准备</title>
+    <link href="https://forever-kid.github.io/2021/10/03/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%87%86%E5%A4%87/"/>
+    <id>https://forever-kid.github.io/2021/10/03/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%87%86%E5%A4%87/</id>
+    <published>2021-10-03T08:17:13.000Z</published>
+    <updated>2021-10-10T10:29:16.283Z</updated>
+    
+    
+    <summary type="html">记录一下准备蓝桥杯的过程，顺便梳理一下知识点</summary>
+    
+    
+    
+    
+    <category term="大学竞赛整理" scheme="https://forever-kid.github.io/tags/%E5%A4%A7%E5%AD%A6%E7%AB%9E%E8%B5%9B%E6%95%B4%E7%90%86/"/>
+    
+  </entry>
+  
+</feed>

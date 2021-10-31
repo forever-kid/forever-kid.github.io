@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>hexo搭建资料</title>
+    <url>/2021/10/31/hexo%E6%90%AD%E5%BB%BA%E8%B5%84%E6%96%99/</url>
+    <content><![CDATA[<center>“业精于勤，荒于嬉；行成于思，毁于随”</center>
+<br> 
+最近开完组会，分享了下自己新建的博客，有朋友问我，但最近太忙简单整理了下，希望能够帮助大家少走弯路，成功搭建起自己的博客。
+<br> 
+
+<p><a href="https://zhuanlan.zhihu.com/p/102592286">从零开始搭建个人博客（很详细）</a></p>
+<p>PS：在上面那个帖子里面有一个步骤需要改为branch: main</p>
+<p><img src="D:\Blog\source_posts\hexo搭建资料\QQ图片20211031151926.png"></p>
+<p><a href="https://hexo.io/zh-cn/docs/#%E5%AE%89%E8%A3%85-Hexo">Hexo官方文档</a></p>
+<p><a href="https://www.heson10.com/archives/">一个专门更新hexo美化自定义的博客网站</a></p>
+<p><a href="https://tding.top/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Hexo/">博客插件推荐和美化</a></p>
+<p>除此之外你还可以到github的hexo社区逛逛</p>
+<p><a href="https://github.com/next-theme/awesome-next">官方推荐插件</a></p>
+<p><a href="https://github.com/next-theme/hexo-theme-next/issues?q=is:open+is:issue+label:%22Feature+Request%22">hexo问题</a></p>
+<p><a href="https://github.com/theme-next/hexo-theme-next">插件汇总</a></p>
+<p>其实网上的美化教程已经有很多了，我这里只放了一部分，CSDN等都有很多，当然你如果不是前端的小白（不是的话应该也不会看这篇博客），就可以更加自由的个性化，做出自己的风格（我是纯小白，能力有限），快去动手搭建自己的博客吧，相信一定会是个很有趣的过程！<br><img src="D:\Blog\source_posts\hexo搭建资料\胡桃.gif"><br><br> </p>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MSP432笔记</title>
+    <url>/2021/10/30/MSP432%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="一、串口"><a href="#一、串口" class="headerlink" title="一、串口"></a>一、串口</h1><h2 id="1、串口资源"><a href="#1、串口资源" class="headerlink" title="1、串口资源"></a>1、串口资源</h2><p><img src="image-20211027201216844.png"></p>
+<p>eUSCI_A模块还支持SPI模式</p>
+<p>A模块支持串口</p>
+<p>B模块支持SPI和IIC</p>
+<h2 id="2、配置流程"><a href="#2、配置流程" class="headerlink" title="2、配置流程"></a>2、配置流程</h2><p><img src="image-20211027201454142.png"></p>
+<p><img src="image-20211027202551349.png"></p>
+<p><img src="image-20211027202539436.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1、配置时钟</span><br><span class="line">2、配置GPIO复用</span><br><span class="line">3、配置结构体</span><br><span class="line">4、初始化串口</span><br><span class="line">5、开启串口</span><br><span class="line">6、开启串口相关中断</span><br><span class="line">7、开启串口端口中断</span><br><span class="line">8、开启总中断</span><br><span class="line">9、编写UART ISR</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、定时器"><a href="#二、定时器" class="headerlink" title="二、定时器"></a>二、定时器</h1><h2 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h2><p>板载四个定时器A，每个定时器A有五个通道（CCR0,CCR1,CCR2,CCR3,CCR4）</p>
+<p>CCR0相当于STM32中的ARR</p>
+<p><img src="image-20211027210923809.png"></p>
+<p><img src="image-20211027212958583.png"></p>
+<p><img src="image-20211027213012291.png"></p>
+<h2 id="2、配置"><a href="#2、配置" class="headerlink" title="2、配置"></a>2、配置</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1、初始化定时器模块</span></span><br><span class="line">Timer_A_configureUpMode(TIMER_Ax_BASE,&amp;upConfig);</span><br><span class="line"><span class="comment">//2、选择模式开始计数</span></span><br><span class="line">Timer_A_startCounter(TIMER_Ax_BASE,TIMER_A_UP_MODE);</span><br><span class="line"><span class="comment">//3、清除比较中断标志</span></span><br><span class="line">Timer_A_clearCaptureComparreInterrrupt(TIMER_Ax,REGISTER_0);</span><br><span class="line"><span class="comment">//4、开启定时器A端口中断</span></span><br><span class="line">Interrupt_enableInterrupt(INT_TAx_0);</span><br><span class="line"><span class="comment">//5、开启总中断</span></span><br><span class="line">Interrupt_enableMaster(<span class="keyword">void</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20211027213900179.png"></p>
+<h1 id="三、PWM"><a href="#三、PWM" class="headerlink" title="三、PWM"></a>三、PWM</h1><h2 id="1、简介-1"><a href="#1、简介-1" class="headerlink" title="1、简介"></a>1、简介</h2><p>定时器A有七种输出模式</p>
+<p>常用的是Mode2（Toggle/Reset）和Mode6（Toggle/Set）</p>
+<p><img src="image-20211027214403978.png"></p>
+<p>值得一提的是在增减计数模式下，2和6输出模式配合可以生成带死区的PWM</p>
+<p><img src="image-20211027215106303.png"></p>
+<h2 id="2、配置-1"><a href="#2、配置-1" class="headerlink" title="2、配置"></a>2、配置</h2><p><img src="image-20211027215209681.png"></p>
+<h1 id="四、输入捕获"><a href="#四、输入捕获" class="headerlink" title="四、输入捕获"></a>四、输入捕获</h1><h2 id="1、简介-2"><a href="#1、简介-2" class="headerlink" title="1、简介"></a>1、简介</h2><h2 id="2、配置-2"><a href="#2、配置-2" class="headerlink" title="2、配置"></a>2、配置</h2><p><img src="image-20211027220046135.png"></p>
+<p>捕获过程</p>
+<p><img src="image-20211027220149287.png"></p>
+<p>例如：计算高电平时常当检测到上升沿时，将定时器计数值置零，之后捕获到下降沿时读出捕获寄存器CCRN的捕获值，再带入如下公式中即可</p>
+<p><img src="image-20211027220331150.png"></p>
+<p>注意在选用定时器通道中断时，只有通道0选用INT_TAX_0，其他的都选INT_TAX_N</p>
+<h1 id="五、定时器32"><a href="#五、定时器32" class="headerlink" title="五、定时器32"></a>五、定时器32</h1><h2 id="1、简介-3"><a href="#1、简介-3" class="headerlink" title="1、简介"></a>1、简介</h2><p>MSP432有两个定时器32，分别为定时器32_0和32_1，递减计数</p>
+<p><img src="image-20211028112050462.png"></p>
+<p>定时器32的时钟源只有MCLK</p>
+<p><img src="image-20211028112216157.png"> </p>
+<h1 id="六、IIC"><a href="#六、IIC" class="headerlink" title="六、IIC"></a>六、IIC</h1><p>四个EUSCI_B，支持软件和硬件IIC</p>
+]]></content>
+      <tags>
+        <tag>大学竞赛整理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ubuntu18.04配置clash</title>
+    <url>/2021/10/03/ubuntu18.04%E9%85%8D%E7%BD%AEclash%20for%20liunx/</url>
+    <content><![CDATA[<h1 id="一、下载clash-for-linux"><a href="#一、下载clash-for-linux" class="headerlink" title="一、下载clash for linux"></a>一、下载clash for linux</h1><p> <a href="https://github.com/Dreamacro/clash/releases">clash  下载链接</a><br> 下载并解压（可以命令行解决，也可以图形化操作，这里不作演示）<br> 解压后授权可执行权限<br> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x clash</span><br></pre></td></tr></table></figure><br> 初始化执行clash<br> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./clash</span><br></pre></td></tr></table></figure><br>这时默认会在~/.config/clash/目录下生成我们要注意的配置文件<code>config.yaml</code>（.config是隐藏文件）</p>
+<h1 id="二、准备配置文件"><a href="#二、准备配置文件" class="headerlink" title="二、准备配置文件"></a>二、准备配置文件</h1><p>接着我们从windows下进行，前提是在windows下已经配置好了clash，并能够成功使用。</p>
+<ol>
+<li>打开clash for windows，进入Profies页面，更新一下你当前的配置文件</li>
+<li>打开clash for windows的配置文件夹（一般在C:\Users\电脑用户名.config\clash）</li>
+<li>我的电脑装的双系统，把该文件复制到双系统的共享盘中。</li>
+<li>重启开机后，进入ubuntu，用该文件覆盖之前生成的clash文件，对应路径为<code>~/.config/clash</code></li>
+<li>此时打开profiles文件夹（clash路径下）<img src="https://img-blog.csdnimg.cn/9e75a406638f4e5091f5e0a47d82dd15.png">即对应windows下的这三个文件</li>
+<li>打开后，选择带有节点选择的文件，并将其重命名为config.yaml，切换目录到clash下，将原本的覆盖掉即可</li>
+</ol>
+<h1 id="三、通过web端设置clash"><a href="#三、通过web端设置clash" class="headerlink" title="三、通过web端设置clash"></a>三、通过web端设置clash</h1><p>进入<a href="http://clash.razord.top/#/settings">http://clash.razord.top/#/settings</a>页面进行设置<br><img src="https://img-blog.csdnimg.cn/998c044797c2413c924c9e2b139b2961.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5Yqq5Yqb55qE6Zi_5q2j,size_18,color_FFFFFF,t_70,g_se,x_16"><br>external-controller对应为这里的端口号<br>同时修改HTTP 代理端口和Socks5 代理端口为配置文件中对应端口号<br>这样我们就可以顺利进入页面，可以看到导入的配置文件中的节点，测速后，选择对应的节点即可使用</p>
+<p>PS:配置完善后，我们可以设置clash开机自启动，方便使用</p>
+]]></content>
+      <tags>
+        <tag>ubuntu18.04工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>蓝桥杯准备</title>
+    <url>/2021/10/03/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%87%86%E5%A4%87/</url>
+    <content><![CDATA[<p>开始时先做好初始化的准备，注意初始化的逻辑要清晰，先初始化<code>lCD</code>，若有数据处理要求，再初始化<code>I2C</code>，读取<code>EEPROM</code>数据，便于讲数据显示在LCD屏幕上。如果定时器，串口之类的中断功能，要记得提前开启中断，避免忘记。</p>
+<p>还要注意代码生成的配置为独立.c和.h文件和只装载用到的库</p>
+<h1 id="一、LCD部分"><a href="#一、LCD部分" class="headerlink" title="一、LCD部分"></a>一、LCD部分</h1><h2 id="1-高亮显示某个字符"><a href="#1-高亮显示某个字符" class="headerlink" title="1.高亮显示某个字符"></a>1.高亮显示某个字符</h2><p><code>void LCD_SetTextColor(vu16 Color);</code><br>        该函数只有一个参数（颜色），作用就是设置字体颜色，但是作用效果仅对后面的显示有效。</p>
+<p>板载LCD分辨率为240*320，LCD一共分为10行20列，即一个字符占24✖16</p>
+<p><code>void LCD_Displaychar(u8 Line, u16 Colum, u8 Ascii);</code></p>
+<p>第一个参数是行选择，第二个参数是列选择，第三个参数是需要显示的字符。所以我们可以看到<code>lcd.h</code>宏定义里面每一行之间的差值就是24，那么每一列之间的差值就是16啦，实际上表示一列的时候是反着来的，320表示第一列，320-16表示第二列，那么320-(16 * i)表示第<strong>i</strong>列</p>
+<p>第三个参数是<code>Ascii码</code>格式，所以我们想显示数字时需要在数字后面加‘0’或者48，将它转成字符</p>
+<p>另一个要注意的是我们会经常用到的格式化输出，用来显示在LCD上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint8_t buf[30];</span><br><span class="line">sprintf((char *)buf, &quot;%02d : %02d : %02d&quot;, hour, min, sec)</span><br></pre></td></tr></table></figure>
+
+<p><code>void LCD_DisplayStringLine(u8 Line, u8 *ptr)</code>;</p>
+<p>这个用来显示字符串，第一个参数是指定行，第二个参数是显示的字符串</p>
+<p>自动补零：<code>%2d或者%.2d</code></p>
+<p>左对齐：%-d</p>
+<p>指定小数位：<code>%.2f</code></p>
+<h1 id="二、LED"><a href="#二、LED" class="headerlink" title="二、LED"></a>二、LED</h1><p>打开<code>lcd</code>历程，配置好led的八个引脚（推挽输出即可），在<code>main.c</code>中编写函数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//关闭第几个led</span><br><span class="line">void Turnoff_led(uint8_t led)</span><br><span class="line">&#123;</span><br><span class="line">	Led_Val |= (0x01&lt;&lt;(7+led));</span><br><span class="line">	HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,GPIO_PIN_SET);</span><br><span class="line">	GPIOC-&gt;ODR = (uint32_t)Led_Val;</span><br><span class="line">	HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,GPIO_PIN_SET);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//点亮第几个led</span><br><span class="line">void TurnOn_led(uint8_t led)</span><br><span class="line">&#123;</span><br><span class="line">	Led_Val &amp;= ~(0x01&lt;&lt;(7+led));</span><br><span class="line">	HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,GPIO_PIN_SET);</span><br><span class="line">	GPIOC-&gt;ODR = (uint32_t)Led_Val;</span><br><span class="line">	HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,GPIO_PIN_SET);</span><br><span class="line">&#125;</span><br><span class="line">//关闭全部led</span><br><span class="line">void Turnoff_ALL(void)</span><br><span class="line">&#123;</span><br><span class="line">	Led_Val = 0xff00;</span><br><span class="line">	HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,GPIO_PIN_SET);</span><br><span class="line">	GPIOC-&gt;ODR = Led_Val;</span><br><span class="line">	HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,GPIO_PIN_SET);</span><br><span class="line">&#125;</span><br><span class="line">//第几个led状态翻转</span><br><span class="line">void LED_toggle(uint8_t led)</span><br><span class="line">&#123;</span><br><span class="line">	HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,GPIO_PIN_SET);</span><br><span class="line">	HAL_GPIO_TogglePin(GPIOC,(uint16_t)led&lt;&lt;8);</span><br><span class="line">	HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2,GPIO_PIN_SET);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>ODR</code>低十六位控制输出高低电平，注意<code>GPIOD</code>的锁存操作</p>
+<p>注意：其中有相应的位操作，一定要注意左移几位</p>
+<h1 id="三、按键"><a href="#三、按键" class="headerlink" title="三、按键"></a>三、按键</h1><p>长短按常见有三种实现方法，轮询，外部中断，定时器扫描，这里我采用轮询来实现，简单容易配置。（只需要把IO配置为<code>GPIO_intput</code>）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//返回按下状态对应的键值，用HAL_Delay延时实现粗略判断长短按</span><br><span class="line">u8 Key_value(void)</span><br><span class="line">&#123;</span><br><span class="line">	u8 time=0,value=0;</span><br><span class="line">	if((B1==0)||(B2==0)||(B3==0)||(B4==0))</span><br><span class="line">	&#123;</span><br><span class="line">		HAL_Delay(10);</span><br><span class="line">		if(B1==0)</span><br><span class="line">		&#123;</span><br><span class="line">			while(B1==0)</span><br><span class="line">			&#123;</span><br><span class="line">				HAL_Delay(20);</span><br><span class="line">				time++;</span><br><span class="line">			&#125;</span><br><span class="line">			value = time&gt;40?B1_long:B1_short;</span><br><span class="line">		&#125;</span><br><span class="line">		if(B2==0)</span><br><span class="line">		&#123;</span><br><span class="line">			while(B2==0)</span><br><span class="line">			&#123;</span><br><span class="line">				HAL_Delay(20);</span><br><span class="line">				time++;</span><br><span class="line">				if(time&gt;40)break;</span><br><span class="line">			&#125;</span><br><span class="line">			value = time&gt;40?B2_long:B2_short;</span><br><span class="line">		&#125;</span><br><span class="line">		if(B3==0)</span><br><span class="line">		&#123;</span><br><span class="line">			while(B3==0)</span><br><span class="line">			&#123;</span><br><span class="line">				HAL_Delay(20);</span><br><span class="line">				time++;</span><br><span class="line">				if(time&gt;40)break;</span><br><span class="line">			&#125;</span><br><span class="line">			value = time&gt;40?B3_long:B3_short;</span><br><span class="line">		&#125;	</span><br><span class="line">		if(B4==0)</span><br><span class="line">		&#123;</span><br><span class="line">			while(B4==0)</span><br><span class="line">			&#123;</span><br><span class="line">				HAL_Delay(20);</span><br><span class="line">				time++;</span><br><span class="line">			&#125;</span><br><span class="line">			value = time&gt;40?B4_long:B4_short;</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">	return value;</span><br><span class="line">&#125;</span><br><span class="line">//按键扫描，读取返回的键值，从而进入对应的状态</span><br><span class="line">void Key_scan(void)</span><br><span class="line">&#123;</span><br><span class="line">	set_page = Key_value();</span><br><span class="line">	switch(set_page)</span><br><span class="line">	&#123;</span><br><span class="line">		case 0: break;</span><br><span class="line">		case B1_long: break;</span><br><span class="line">		case B1_short: break;</span><br><span class="line">		case B2_long: break;</span><br><span class="line">		case B2_short: break;</span><br><span class="line">		case B3_long: break;</span><br><span class="line">		case B3_short: break;</span><br><span class="line">		case B4_long: break;</span><br><span class="line">		case B4_short: break;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中在<code>gpio.h</code>中对四个按键进行宏定义，读取对应IO上的引脚状态</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#define B1 HAL_GPIO_ReadPin(GPIOB,0X0001)</span><br><span class="line">#define B2 HAL_GPIO_ReadPin(GPIOB,0X0002)</span><br><span class="line">#define B3 HAL_GPIO_ReadPin(GPIOB,0X0004)</span><br><span class="line">#define B4 HAL_GPIO_ReadPin(GPIOA,0X0001)</span><br></pre></td></tr></table></figure>
+
+<p>将key_scan()放在循环中，即实现了状态机的编写，根据具体功能加入对应函数的实现</p>
+<h1 id="四、串口通信"><a href="#四、串口通信" class="headerlink" title="四、串口通信"></a>四、串口通信</h1><p>串口引脚为<code>PA9(TX)和PA10(RX)，</code>配置成串口模式，**异步通信(Asynchronous)**，其余默认，配置为中断模式，注意优先级的选择</p>
+<p>之后工程要重定向<code>fputc函数和fgetc函数</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int fputc(int ch, FILE *f)</span><br><span class="line">&#123;</span><br><span class="line">HAL_UART_Transmit(&amp;huart1, (uint8_t *)&amp;ch, 1, HAL_MAX_DELAY);</span><br><span class="line">return ch;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int fgetc(FILE *f)</span><br><span class="line">&#123;</span><br><span class="line">  uint8_t ch = 0;</span><br><span class="line">  HAL_UART_Receive(&amp;huart1, &amp;ch, 1, 0xffff);</span><br><span class="line">  return ch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>串口发送数据</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)</span><br></pre></td></tr></table></figure>
+
+<p>串口接收数据</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)</span><br></pre></td></tr></table></figure>
+
+<p>可以通过下面的代码实现接收判断</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if(HAL_OK == HAL_UART_Receive(&amp;huart1, (uint8_t*)recv_buf, 12, 0xFFFF))</span><br><span class="line">&#123;</span><br><span class="line">		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>中断接收数据（当然还有中断发送数据，用法一样），即在端口中断模式下调用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size)</span><br></pre></td></tr></table></figure>
+
+<p>功能：串口中断接收，以中断方式接收指定长度数据。</p>
+<p>大致过程是：设置数据存放位置，接收数据长度，然后使能串口接收中断。接收到数据时，会触发串口中断。再然后，串口中断函数处理，直到接收到指定长度数据，而后关闭中断，进入中断接收回调函数，不再触发接收中断。(只触发一次中断)</p>
+<p>其他的不具体展开，下面附上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HAL_UART_IRQHandler(UART_HandleTypeDef *huart);  //串口中断处理函数</span><br><span class="line">HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart);  //串口发送中断回调函数</span><br><span class="line">HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);  //串口接收中断回调函数</span><br><span class="line">HAL_UART_GetState();//该函数用来判断UART的接收是否结束，或者发送数据是否忙碌</span><br></pre></td></tr></table></figure>
+
+<p>一般都在中断回调函数中实现功能</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if(huart-&gt;Instance==USART1)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意！！！<strong>因为中断接收函数只能触发一次接收中断，所以我们需要在中断回调函数中再调用一次中断接收函数</strong></p>
+<p>具体流程：</p>
+<p>1、初始化串口</p>
+<p>2、在main中第一次调用接收中断函数</p>
+<p>3、当接收到数据时，进入接收中断，接收完数据  进入中断回调函数</p>
+<p>4、修改<code>HAL_UART_RxCpltCallback</code>中断回调函数，处理接收的数据</p>
+<p>5  回调函数中要调用一次HAL_UART_Receive_IT函数，使得程序可以重新触发接收中断</p>
+<p>具体串口数据包协议不展开</p>
+<p>memset();</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if(strcmp((char *)rx_data, (char*)rx_order) == 0)</span><br><span class="line">&#123;</span><br><span class="line">//do something...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">f(rx_flag == 1)</span><br><span class="line">&#123;</span><br><span class="line">sscanf((char*)rx_buffer,</span><br><span class="line">&quot;%c %c %c %c %u %c %u&quot;,</span><br><span class="line">&amp;rx_data.c1, &amp;rx_data.c2, &amp;rx_data.c3, &amp;rx_data.c4, &amp;rx_data.x,</span><br><span class="line">&amp;rx_data.c5,&amp;rx_data.y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="五、定时器"><a href="#五、定时器" class="headerlink" title="五、定时器"></a>五、定时器</h1><p>如果实现LED闪烁可以使用滴答定时器来实现，这里需要注意<strong>1 HZ闪烁是0.5 s暗，0.5 s亮</strong>，滴答定时器默认配置是1 ms，可以在其中断函数中利用计数实现定时1 s</p>
+<p><code>HAL_TIM_IRQHandler(&amp;htim2);</code></p>
+<p>定时器中断处理函数  在<code>stm32f4xx_it.c</code>的 <code>TIM2_IRQHandler()</code>定时器中断服务函数中</p>
+<p>这个函数的具体作用是判断中断是否正常，然后判断产生的是哪一类定时器中断(溢出中断/PWM中断…..)，然后进入相应的中断回调函数</p>
+<p><code>void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)</code></p>
+<p>具体流程：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.void TIM3_IRQHandler(void)   首先进入中断函数</span><br><span class="line">2.HAL_TIM_IRQHandler(&amp;htim2);之后进入定时器中断处理函数</span><br><span class="line">3.判断产生的是哪一类定时器中断(溢出中断/PWM中断.....) 和定时器通道</span><br><span class="line">4.void HAL_TIM_PeriodElapsedCallback(&amp;htim2);    进入相对应中断回调函数</span><br><span class="line">5.在中断回调函数中添加用户代码</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)</span><br><span class="line">&#123;</span><br><span class="line">    HAL_TIM_Base_Start_IT(&amp;htim4);</span><br><span class="line">    static uint8_t key_count;</span><br><span class="line">    if(htim-&gt;Instance == TIM4)</span><br><span class="line">    &#123;</span><br><span class="line">    	if(++key_count == 10)</span><br><span class="line">        &#123;</span><br><span class="line">            key_count = 0;</span><br><span class="line">            Key_Flag = 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：这个和串口不同，中断使能一次即可，想要关闭中断时调用<code>HAL_TIM_Base_Stop_IT(&amp;htim2)</code></p>
+<p><code>HAL_TIM_Base_Start_IT(&amp;htim2)；</code>//使能定时中断</p>
+<h1 id="六、PWM"><a href="#六、PWM" class="headerlink" title="六、PWM"></a>六、PWM</h1><p>下面是在CubeMX上配置时的几个参数，定时器计数上的设置同上</p>
+<ul>
+<li><strong>Mode</strong>  选择PWM模式1</li>
+<li><strong>Pulse(占空比值)</strong> 先给0</li>
+<li><strong>Fast Mode</strong>  PWM脉冲快速模式  ： 和我们配置无关，不使能</li>
+<li><strong>PWM 极性：</strong>  设置为低电平    PS: <strong>由于LED是低电平点亮，所以我们把极性设置为low</strong></li>
+</ul>
+<p><strong>改CCR1可以修改占空比，修改arr可以修改频率</strong></p>
+<p>配置完毕后，我们直接调用<code>HAL_TIM_PWM_Start(&amp;htim3,TIM_CHANNEL_1);</code>就可以实现PWM的输出了</p>
+<p>同理<code>HAL_TIM_PWM_Stop(&amp;htim3,TIM_CHANNEL_1)</code>实现定时器PWM的停止</p>
+<p>我们还可以通过 <code>__HAL_TIM_SetCompare(&amp;htim3, TIM_CHANNEL_1, pwmVal);</code>或者通过寄存器<code>htim3.Instance-&gt;CCR1 = 300;</code>实现占空比的改变</p>
+<p>**</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">__HAL_TIM_SET_COUNTER(&amp;TIM5_Handler,0);  //设置计数寄存器的值变为0</span><br><span class="line"></span><br><span class="line">__HAL_TIM_SET_CAPTUREPOLARITY(&amp;htim5,TIM_CHANNEL_1,TIM_ICPOLARITY_FALLING);  //设置为下降沿捕获</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* USER CODE BEGIN 4 */</span><br><span class="line">void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)</span><br><span class="line">&#123;</span><br><span class="line">	</span><br><span class="line">	if(TIM5 == htim-&gt;Instance)</span><br><span class="line">	&#123;</span><br><span class="line">		switch(capture_Cnt)&#123;</span><br><span class="line">			case 1:</span><br><span class="line">				capture_Buf[0] = HAL_TIM_ReadCapturedValue(&amp;htim5,TIM_CHANNEL_1);//获取当前的捕获值.</span><br><span class="line">				__HAL_TIM_SET_CAPTUREPOLARITY(&amp;htim5,TIM_CHANNEL_1,TIM_ICPOLARITY_FALLING);  //设置为下降沿捕获</span><br><span class="line">				capture_Cnt++;</span><br><span class="line">				break;</span><br><span class="line">			case 2:</span><br><span class="line">				capture_Buf[1] = HAL_TIM_ReadCapturedValue(&amp;htim5,TIM_CHANNEL_1);//获取当前的捕获值.</span><br><span class="line">				HAL_TIM_IC_Stop_IT(&amp;htim5,TIM_CHANNEL_1); //停止捕获   或者: __HAL_TIM_DISABLE(&amp;htim5);</span><br><span class="line">				capture_Cnt++;    </span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">/* USER CODE END 4 */</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="七、ADC"><a href="#七、ADC" class="headerlink" title="七、ADC"></a>七、ADC</h1><p>这里使用轮询配置，配置R37(PB15)或者R38(PB12)，根据要求选择即可</p>
+<p>使用前先调用下面的函数校准</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HAL_ADCEx_Calibration_Start(&amp;hadc2, ADC_SINGLE_ENDED); //校准ADC</span><br></pre></td></tr></table></figure>
+
+<p>然后编写下面的函数直接调用返回读取的电压值（这里是R37）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint16_t Get_ADC(void)</span><br><span class="line">&#123;</span><br><span class="line">	uint16_t temp = 0 ;</span><br><span class="line">	HAL_ADC_Start(&amp;hadc2);</span><br><span class="line">	temp = HAL_ADC_GetValue(&amp;hadc2);</span><br><span class="line">	HAL_ADC_Stop(&amp;hadc2);</span><br><span class="line">	return temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里是使用的单次转换，转换一次就结束，单次转换则只转换一次数据就停止，要再次触发转换才可以进行转换</p>
+<h1 id="八、DAC"><a href="#八、DAC" class="headerlink" title="八、DAC"></a>八、DAC</h1><p>DAC 有两个用途：输出波形和输出固定电压</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HAL_DAC_SetValue(&amp;hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, 2048);</span><br><span class="line">功能：设置DAC的输出值</span><br><span class="line">参数一： DAC结构体名</span><br><span class="line">参数二： 设置DAC通道</span><br><span class="line">参数三： 设置DAC对齐方式</span><br><span class="line">参数四： 设置输出电压值 12位最大位4095</span><br><span class="line"></span><br><span class="line">HAL_DAC_Start(&amp;hdac,DAC_CHANNEL_1);</span><br><span class="line">功能：开启DAC输出</span><br><span class="line">参数一： DAC结构体名</span><br><span class="line">参数二： DAC通道</span><br></pre></td></tr></table></figure>
+
+<p>配置好后直接在main函数中写入就可以了，PA4正确输出电压1.6左右</p>
+<pre><code>HAL_DAC_SetValue(&amp;hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, 2048);
+HAL_DAC_Start(&amp;hdac1,DAC_CHANNEL_1);
+</code></pre>
+<p>或者使用封装的函数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void Dac1_Set_Vol(float vol)</span><br><span class="line">&#123;</span><br><span class="line">uint16_t temp;</span><br><span class="line">temp = (4096*vol/3.3f);</span><br><span class="line">HAL_DAC_SetValue(&amp;hdac1, DAC_CHANNEL_1,DAC_ALIGN_12B_R,temp)；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还可以用DAC配合定时器中断实现三角波的输出</p>
+<h1 id="九、EEPROM"><a href="#九、EEPROM" class="headerlink" title="九、EEPROM"></a>九、EEPROM</h1><p>这里需要把官方给的两个文件加入到工程中去，并在头文件声明对EEPROM读写的两个函数</p>
+<p>实现的具体逻辑</p>
+<p>写操作</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">开始（主机产生START信号）</span><br><span class="line">发送0xa0（从机地址，地址共有7位，紧接着的第8位是数据方向位(R/W)，0表示主机发送数据(写)，1表示主机接收数据(读))</span><br><span class="line">主机等待响应</span><br><span class="line">发送要读写的地址（发送要访问从机的那个地址）</span><br><span class="line">等待响应</span><br><span class="line">发送数据(发送N个字节的数据)</span><br><span class="line">等待响应(等待从机的N次应答信号)</span><br><span class="line">停止(主机产生停止信号)</span><br><span class="line">等待响应</span><br></pre></td></tr></table></figure>
+
+<p>读操作</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">开始（主机产生START信号）</span><br><span class="line">发送0xa0（从机地址）</span><br><span class="line">等待响应</span><br><span class="line">发送要读写的地址（发送要访问从机的那个地址）</span><br><span class="line">等待响应</span><br><span class="line">主机重新发送一个开始start信号（收到应答信号后，主机将由发送变为接收，从机将由接收变为发送）</span><br><span class="line">发送读命令（然后紧跟着发送一个从机地址，注意此时该地址的第8位为1)</span><br><span class="line">等待响应</span><br><span class="line">val=数据接收函数</span><br><span class="line">等待响应</span><br><span class="line">停止</span><br><span class="line">返回接收的数据</span><br></pre></td></tr></table></figure>
+
+<p>小技巧：</p>
+<p>可以使用共用体来读写浮点数或者结构体的数据等</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">union ee_float</span><br><span class="line">&#123;</span><br><span class="line">float value;</span><br><span class="line">uint8_t data[4];</span><br><span class="line">&#125;float_write, float_read;</span><br></pre></td></tr></table></figure>
+
+<h1 id="十、RTC"><a href="#十、RTC" class="headerlink" title="十、RTC"></a>十、RTC</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">RTC_TimeTypeDef T;</span><br><span class="line">RTC_DateTypeDef D;</span><br><span class="line">uint8_t second;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint8_t str[40];</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HAL_RTC_GetTime(&amp;hrtc, &amp;T, RTC_FORMAT_BIN);</span><br><span class="line">HAL_RTC_GetDate(&amp;hrtc, &amp;D, RTC_FORMAT_BIN);</span><br><span class="line">if(second != T.Seconds)</span><br><span class="line">&#123;</span><br><span class="line">    second = T.Seconds;</span><br><span class="line">    sprintf((char *)str, &quot;%02d-%02d-%02d\r\n&quot;,T.Hours,T.Minutes,T.Seconds);</span><br><span class="line">    HAL_UART_Transmit(&amp;huart1, str, sizeof(str), 50);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>大学竞赛整理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>信号与系统的一些个人理解</title>
+    <url>/2021/10/20/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<center>个人对学习信号的一些理解</center>
+
+<br>
+<div class="pdfobject-container" data-target="信号与系统的个人思考（一）.pdf" data-height="500px"></div>
+<br>
+<br>
+<div class="pdfobject-container" data-target="信号与系统的个人思考（二）.pdf" data-height="500px"></div>
+<br>]]></content>
+      <tags>
+        <tag>信号与系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>联想拯救者双系统ubuntu18的坑</title>
+    <url>/2021/10/18/%E8%81%94%E6%83%B3%E6%8B%AF%E6%95%91%E8%80%85%E5%8F%8C%E7%B3%BB%E7%BB%9Fubuntu18%E7%9A%84%E5%9D%91/</url>
+    <content><![CDATA[<h1 id="更新驱动后WiFi图标消失，外接显示器无视频输入，检测不到设备"><a href="#更新驱动后WiFi图标消失，外接显示器无视频输入，检测不到设备" class="headerlink" title="更新驱动后WiFi图标消失，外接显示器无视频输入，检测不到设备"></a>更新驱动后WiFi图标消失，外接显示器无视频输入，检测不到设备</h1><p>由于联想默认屏蔽核显，需要我们在bios里取消屏蔽，这时要同时打开核显和独显，设置好之后再打开进入系统，我们就可以正常使用了</p>
+]]></content>
+      <tags>
+        <tag>ubuntu18.04</tag>
+      </tags>
+  </entry>
+</search>
