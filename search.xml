@@ -247,7 +247,7 @@ HAL_DAC_Start(&amp;hdac1,DAC_CHANNEL_1);
   </entry>
   <entry>
     <title></title>
-    <url>/2021/10/03/ubuntu18.04%E9%85%8D%E7%BD%AEclash%20for%20liunx/</url>
+    <url>/2021/10/03/ubuntu18-04%E9%85%8D%E7%BD%AEclash-for-liunx/</url>
     <content><![CDATA[<hr>
 <p>title: ubuntu18.04配置clash<br>date: 2021-10-03 16:17:13<br>tags: ubuntu18.04工具<br>description: 最近配置了一下clash for liunx，确实有不少坑，记录一些需要注意的点<br>comments: true</p>
 <h1 id="一、下载clash-for-linux"><a href="#一、下载clash-for-linux" class="headerlink" title="一、下载clash for linux"></a>一、下载clash for linux</h1><p> <a href="https://github.com/Dreamacro/clash/releases">clash  下载链接</a><br> 下载并解压（可以命令行解决，也可以图形化操作，这里不作演示）<br> 解压后授权可执行权限<br> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x clash</span><br></pre></td></tr></table></figure><br> 初始化执行clash<br> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./clash</span><br></pre></td></tr></table></figure><br>这时默认会在~/.config/clash/目录下生成我们要注意的配置文件<code>config.yaml</code>（.config是隐藏文件）</p>
