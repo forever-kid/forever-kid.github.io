@@ -34,28 +34,6 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://forever-kid.github.io/2021/11/08/%E7%BB%99%E7%94%B5%E8%B5%9B%E7%9A%84%E6%88%91%E4%BB%AC%E4%BB%A8/"/>
-    <id>https://forever-kid.github.io/2021/11/08/%E7%BB%99%E7%94%B5%E8%B5%9B%E7%9A%84%E6%88%91%E4%BB%AC%E4%BB%A8/</id>
-    <published>2021-11-08T09:35:25.223Z</published>
-    <updated>2021-11-09T13:54:20.718Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;​        看到这封信的时候，我想大家也都已经进入了自己新的生活阶段了，但我还是想抽出时间把这段时间来的点滴做一个记录，以此怀念我大学最快乐最”轻松“的时光，我想这一切都是值得的。&lt;/p&gt;
-&lt;p&gt;​       </summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>hexo搭建资料</title>
     <link href="https://forever-kid.github.io/2021/10/31/hexo%E6%90%AD%E5%BB%BA%E8%B5%84%E6%96%99/"/>
     <id>https://forever-kid.github.io/2021/10/31/hexo%E6%90%AD%E5%BB%BA%E8%B5%84%E6%96%99/</id>
@@ -77,7 +55,7 @@
     <link href="https://forever-kid.github.io/2021/10/30/MSP432%E7%AC%94%E8%AE%B0/"/>
     <id>https://forever-kid.github.io/2021/10/30/MSP432%E7%AC%94%E8%AE%B0/</id>
     <published>2021-10-30T02:25:41.000Z</published>
-    <updated>2021-10-30T04:01:53.322Z</updated>
+    <updated>2021-12-13T13:06:09.953Z</updated>
     
     
     <summary type="html">MSP432的调试笔记，仅供参考</summary>
@@ -124,19 +102,24 @@
   </entry>
   
   <entry>
-    <title>ubuntu18.04配置clash</title>
+    <title></title>
     <link href="https://forever-kid.github.io/2021/10/03/ubuntu18.04%E9%85%8D%E7%BD%AEclash%20for%20liunx/"/>
     <id>https://forever-kid.github.io/2021/10/03/ubuntu18.04%E9%85%8D%E7%BD%AEclash%20for%20liunx/</id>
-    <published>2021-10-03T08:17:13.000Z</published>
-    <updated>2021-10-18T12:57:03.227Z</updated>
+    <published>2021-10-03T13:56:34.945Z</published>
+    <updated>2021-12-13T13:06:24.825Z</updated>
     
     
-    <summary type="html">最近配置了一下clash for liunx，确实有不少坑，记录一些需要注意的点</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;hr&gt;
+&lt;p&gt;title: ubuntu18.04配置clash&lt;br&gt;date: 2021-10-03 16:17:13&lt;br&gt;tags: ubuntu18.04工具&lt;br&gt;description: 最近配置了一下clash for</summary>
+        
+      
     
     
     
-    
-    <category term="ubuntu18.04工具" scheme="https://forever-kid.github.io/tags/ubuntu18-04%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
