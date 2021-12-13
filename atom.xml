@@ -6,7 +6,7 @@
   <link href="https://forever-kid.github.io/atom.xml" rel="self"/>
   
   <link href="https://forever-kid.github.io/"/>
-  <updated>2021-11-09T13:54:20.718Z</updated>
+  <updated>2021-12-13T13:04:19.661Z</updated>
   <id>https://forever-kid.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数字信号的一些思考</title>
+    <link href="https://forever-kid.github.io/2021/12/13/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    <id>https://forever-kid.github.io/2021/12/13/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</id>
+    <published>2021-12-13T12:57:11.000Z</published>
+    <updated>2021-12-13T13:04:19.661Z</updated>
+    
+    
+    <summary type="html">最近对数字信号进行了整体的复习，有些新的体会和认识</summary>
+    
+    
+    
+    
+    <category term="信号与系统" scheme="https://forever-kid.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
   
   <entry>
     <title></title>
