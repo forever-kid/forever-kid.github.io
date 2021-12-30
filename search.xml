@@ -166,6 +166,36 @@ HAL_DAC_Start(&amp;hdac1,DAC_CHANNEL_1);
       </tags>
   </entry>
   <entry>
+    <title>ubuntu18.04配置clash-for-liunx</title>
+    <url>/2021/12/30/ubuntu18-04%E9%85%8D%E7%BD%AEclash-for-liunx/</url>
+    <content><![CDATA[<h1 id="一、下载clash-for-linux"><a href="#一、下载clash-for-linux" class="headerlink" title="一、下载clash for linux"></a>一、下载clash for linux</h1><p> <a href="https://github.com/Dreamacro/clash/releases">clash  下载链接</a><br> 下载并解压（可以命令行解决，也可以图形化操作，这里不作演示）<br> 解压后授权可执行权限</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x clash</span><br></pre></td></tr></table></figure>
+
+<p> 初始化执行clash</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./clash</span><br></pre></td></tr></table></figure>
+
+<p>这时默认会在~/.config/clash/目录下生成我们要注意的配置文件<code>config.yaml</code>（.config是隐藏文件）</p>
+<h1 id="二、准备配置文件"><a href="#二、准备配置文件" class="headerlink" title="二、准备配置文件"></a>二、准备配置文件</h1><p>接着我们从windows下进行，前提是在windows下已经配置好了clash，并能够成功使用。</p>
+<ol>
+<li><p>打开clash for windows，进入Profies页面，更新一下你当前的配置文件</p>
+</li>
+<li><p>打开clash for windows的配置文件夹（一般在C:\Users\电脑用户名.config\clash）</p>
+</li>
+<li><p>我的电脑装的双系统，把该文件复制到双系统的共享盘中。</p>
+</li>
+<li><p>重启开机后，进入ubuntu，用该文件覆盖之前生成的clash文件，对应路径为<code>~/.config/clash</code></p>
+</li>
+<li><p>此时打开profiles文件夹（clash路径下）<img src="https://img-blog.csdnimg.cn/9e75a406638f4e5091f5e0a47d82dd15.png">即对应windows下的这三个文件<br>6.打开后，选择带有节点选择的文件，并将其重命名为config.yaml，切换目录到clash下，将原本的覆盖掉即可</p>
+</li>
+</ol>
+<h1 id="三、通过web端设置clash"><a href="#三、通过web端设置clash" class="headerlink" title="三、通过web端设置clash"></a>三、通过web端设置clash</h1><p>进入<a href="http://clash.razord.top/#/settings">http://clash.razord.top/#/settings</a>页面进行设置<br><img src="https://img-blog.csdnimg.cn/998c044797c2413c924c9e2b139b2961.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5Yqq5Yqb55qE6Zi_5q2j,size_18,color_FFFFFF,t_70,g_se,x_16"><br>external-controller对应为这里的端口号<br>同时修改HTTP 代理端口和Socks5 代理端口为配置文件中对应端口号<br>这样我们就可以顺利进入页面，可以看到导入的配置文件中的节点，测速后，选择对应的节点即可使用</p>
+<p>PS:配置完善后，我们可以设置clash开机自启动，方便使用</p>
+]]></content>
+      <tags>
+        <tag>ubuntu18.04工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数字信号的一些思考</title>
     <url>/2021/12/13/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</url>
     <content><![CDATA[<center>关于对数字域上的一些思考</center>        
@@ -244,30 +274,5 @@ HAL_DAC_Start(&amp;hdac1,DAC_CHANNEL_1);
       <tags>
         <tag>ubuntu18.04</tag>
       </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2021/10/03/ubuntu18-04%E9%85%8D%E7%BD%AEclash-for-liunx/</url>
-    <content><![CDATA[<hr>
-<p>title: ubuntu18.04配置clash<br>date: 2021-10-03 16:17:13<br>tags: ubuntu18.04工具<br>description: 最近配置了一下clash for liunx，确实有不少坑，记录一些需要注意的点<br>comments: true</p>
-<h1 id="一、下载clash-for-linux"><a href="#一、下载clash-for-linux" class="headerlink" title="一、下载clash for linux"></a>一、下载clash for linux</h1><p> <a href="https://github.com/Dreamacro/clash/releases">clash  下载链接</a><br> 下载并解压（可以命令行解决，也可以图形化操作，这里不作演示）<br> 解压后授权可执行权限<br> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x clash</span><br></pre></td></tr></table></figure><br> 初始化执行clash<br> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./clash</span><br></pre></td></tr></table></figure><br>这时默认会在~/.config/clash/目录下生成我们要注意的配置文件<code>config.yaml</code>（.config是隐藏文件）</p>
-<h1 id="二、准备配置文件"><a href="#二、准备配置文件" class="headerlink" title="二、准备配置文件"></a>二、准备配置文件</h1><p>接着我们从windows下进行，前提是在windows下已经配置好了clash，并能够成功使用。</p>
-<ol>
-<li><p>打开clash for windows，进入Profies页面，更新一下你当前的配置文件</p>
-</li>
-<li><p>打开clash for windows的配置文件夹（一般在C:\Users\电脑用户名.config\clash）</p>
-</li>
-<li><p>我的电脑装的双系统，把该文件复制到双系统的共享盘中。</p>
-</li>
-<li><p>重启开机后，进入ubuntu，用该文件覆盖之前生成的clash文件，对应路径为<code>~/.config/clash</code></p>
-</li>
-<li><p>此时打开profiles文件夹（clash路径下）<img src="https://img-blog.csdnimg.cn/9e75a406638f4e5091f5e0a47d82dd15.png">即对应windows下的这三个文件</p>
-</li>
-<li><p>打开后，选择带有节点选择的文件，并将其重命名为config.yaml，切换目录到clash下，将原本的覆盖掉即可</p>
-</li>
-</ol>
-<h1 id="三、通过web端设置clash"><a href="#三、通过web端设置clash" class="headerlink" title="三、通过web端设置clash"></a>三、通过web端设置clash</h1><p>进入<a href="http://clash.razord.top/#/settings">http://clash.razord.top/#/settings</a>页面进行设置<br><img src="https://img-blog.csdnimg.cn/998c044797c2413c924c9e2b139b2961.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5Yqq5Yqb55qE6Zi_5q2j,size_18,color_FFFFFF,t_70,g_se,x_16"><br>external-controller对应为这里的端口号<br>同时修改HTTP 代理端口和Socks5 代理端口为配置文件中对应端口号<br>这样我们就可以顺利进入页面，可以看到导入的配置文件中的节点，测速后，选择对应的节点即可使用</p>
-<p>PS:配置完善后，我们可以设置clash开机自启动，方便使用</p>
-]]></content>
   </entry>
 </search>

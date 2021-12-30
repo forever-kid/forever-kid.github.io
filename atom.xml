@@ -6,7 +6,7 @@
   <link href="https://forever-kid.github.io/atom.xml" rel="self"/>
   
   <link href="https://forever-kid.github.io/"/>
-  <updated>2021-12-13T13:04:19.661Z</updated>
+  <updated>2021-12-30T04:49:37.207Z</updated>
   <id>https://forever-kid.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ubuntu18.04配置clash-for-liunx</title>
+    <link href="https://forever-kid.github.io/2021/12/30/ubuntu18-04%E9%85%8D%E7%BD%AEclash-for-liunx/"/>
+    <id>https://forever-kid.github.io/2021/12/30/ubuntu18-04%E9%85%8D%E7%BD%AEclash-for-liunx/</id>
+    <published>2021-12-30T04:48:29.000Z</published>
+    <updated>2021-12-30T04:49:37.207Z</updated>
+    
+    
+    <summary type="html">最近配置了一下clash for liunx，确实有不少坑，记录一些需要注意的点</summary>
+    
+    
+    
+    
+    <category term="ubuntu18.04工具" scheme="https://forever-kid.github.io/tags/ubuntu18-04%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>数字信号的一些思考</title>
@@ -98,28 +115,6 @@
     
     
     <category term="ubuntu18.04" scheme="https://forever-kid.github.io/tags/ubuntu18-04/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://forever-kid.github.io/2021/10/03/ubuntu18-04%E9%85%8D%E7%BD%AEclash-for-liunx/"/>
-    <id>https://forever-kid.github.io/2021/10/03/ubuntu18-04%E9%85%8D%E7%BD%AEclash-for-liunx/</id>
-    <published>2021-10-03T13:56:34.945Z</published>
-    <updated>2021-12-13T13:06:24.825Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;hr&gt;
-&lt;p&gt;title: ubuntu18.04配置clash&lt;br&gt;date: 2021-10-03 16:17:13&lt;br&gt;tags: ubuntu18.04工具&lt;br&gt;description: 最近配置了一下clash for</summary>
-        
-      
-    
-    
-    
     
   </entry>
   
